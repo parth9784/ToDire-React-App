@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from './Navbar';
+import Content from './content';
 function App() {
   return (
-    <div className="App">
-    <h1> Shree</h1> 
+    <div className="">
+    <Navbar/>
+    <Content/>
     </div>
   );
 }
