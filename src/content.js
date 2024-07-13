@@ -50,7 +50,10 @@ export default function Content() {
     function handlecancel() {
         setInput(false);
     }
-
+    function handledel(tid) {
+        let updatedList = todolist.filter(item => item.id !== tid);
+        setTodolist(updatedList);
+    }
     function handlesave() {
         const val = document.getElementById("input").value;
         const newObj = {
@@ -69,7 +72,7 @@ export default function Content() {
             <ul id="todo-list" className="mt-1">
                 {todolist.map((p) => {
                     if (!p.checked) {
-                        return <Todoitem key={p.id} item={p.title} checked={p.checked} id={p.id} handlechange={handlechange} />
+                        return <Todoitem key={p.id} item={p.title} checked={p.checked} id={p.id} handlechange={handlechange} handledel={handledel} />
                     }
                     return null;
                 })}
@@ -88,7 +91,7 @@ export default function Content() {
             <ul className="mt-1" id="completed-list">
                 {todolist.map((p) => {
                     if (p.checked) {
-                        return <Todoitem key={p.id} item={p.title} checked={p.checked} id={p.id} handlechange={handlechange} />
+                        return <Todoitem key={p.id} item={p.title} checked={p.checked} id={p.id} handlechange={handlechange} handledel={handledel} />
                     }
                     return null;
                 })}

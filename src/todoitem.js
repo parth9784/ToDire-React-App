@@ -1,10 +1,12 @@
 import React from 'react';
-
-export default function Todoitem({ item, checked, id, handlechange }) {
+import { IoTrashBin } from "react-icons/io5";
+export default function Todoitem({ item, checked, id, handlechange , handledel }) {
   const handleChange = (id) => {
-
         handlechange(id)
   };
+  const handleDel = (id) => {
+    handledel(id)  
+};
 
   return (
     <li className='flex items-center m-2'>
@@ -19,6 +21,7 @@ export default function Todoitem({ item, checked, id, handlechange }) {
       <div className='ml-2'>
         <span className='popr text-lg font-medium'>{item}</span>
       </div>
+      <IoTrashBin className='text-lg ml-3' onClick={()=>{handleDel(id)}} />
     </li>
   );
 }
